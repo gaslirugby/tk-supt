@@ -298,9 +298,9 @@ body {
         --container-max: 96%;
         --container-pad: 1%;
         --frame-side: 12px;
-        --frame-top: 10%;
-        --frame-bottom: 31%;
-        --frame-radius: 59px;
+        --frame-top: 4%;
+        --frame-bottom: 22%;
+        --frame-radius: -17px;
     }
 
     .container {
