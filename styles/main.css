@@ -120,7 +120,7 @@ body {
     bottom: var(--frame-bottom);
     left: calc(var(--frame-side) + 2%);
     border-radius: var(--frame-radius);
-    background: url('../assets/banner.png') center 0%/cover;
+    background: url('../assets/banner.jpeg') center 0%/cover;
     pointer-events: none;
 }
 
