@@ -30,6 +30,8 @@
 html,
 body {
     height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 body {
@@ -41,6 +43,7 @@ body {
     background-position: center;
     background-repeat: repeat;
     background-attachment: scroll;
+    position: relative;
 }
 
 /* ===== LAYOUT COMPONENTS ===== */
