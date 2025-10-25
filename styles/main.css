@@ -85,57 +85,39 @@ body {
     justify-content: center;
     overflow: hidden;
     perspective: 1000px;
-}
-
-.rotating-circles:hover .circles {
-    animation-duration: 10s;
+    /* mix-blend-mode: plus-lighter; */
+    animation: subtlePulse 8s linear infinite;
 }
 
 .circles {
+    animation: simpleRotation 30s linear infinite;
     width: 160%;
     height: 160%;
     object-fit: contain;
     object-position: center center;
-    animation: spinAndZoom 20s linear infinite;
     opacity: 1;
     transform-origin: center center;
 }
 
-@keyframes spinAndZoom {
+@keyframes simpleRotation {
     0% {
-        transform: rotate(0deg) scale(0.95);
-    }
-
-    12.5% {
-        transform: rotate(45deg) scale(0.975);
-    }
-
-    25% {
-        transform: rotate(90deg) scale(1);
-    }
-
-    37.5% {
-        transform: rotate(135deg) scale(1.025);
-    }
-
-    50% {
-        transform: rotate(180deg) scale(1.05);
-    }
-
-    62.5% {
-        transform: rotate(225deg) scale(1.025);
-    }
-
-    75% {
-        transform: rotate(270deg) scale(1);
-    }
-
-    87.5% {
-        transform: rotate(315deg) scale(0.975);
+        transform: rotate(0deg);
     }
 
     100% {
-        transform: rotate(360deg) scale(0.95);
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes subtlePulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
     }
 }
 
@@ -157,7 +139,7 @@ body {
 
 @keyframes smoothScale {
     0% {
-        transform: scale(2.5) rotate(45deg);
+        transform: scale(2.5) rotate(0deg);
         opacity: 0;
     }
 
@@ -171,27 +153,18 @@ body {
 
     0%,
     100% {
-        transform: scale(1) rotate(0deg);
+        transform: translate(0, 0);
     }
 
     33% {
-        transform: scale(1.02) rotate(2deg);
+        transform: translate(2px, -3px);
     }
 
     66% {
-        transform: scale(0.98) rotate(-1deg);
+        transform: translate(-2px, 2px);
     }
 }
 
-@keyframes constantRotate {
-    0% {
-        transform: rotate(0deg);
-    }
-
-    100% {
-        transform: rotate(360deg);
-    }
-}
 
 .hero-image {
     position: absolute;
@@ -354,10 +327,6 @@ body {
         opacity: 1;
         animation-duration: 25s;
         /* Slower on mobile for performance */
-    }
-
-    .rotating-circles:hover .circles {
-        animation-duration: 12s;
     }
 
     .scroll-cue {
