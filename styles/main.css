@@ -160,8 +160,6 @@ body {
 }
 
 .rotating-circles {
-    transition: mix-blend-mode 0.5s ease;
-    cursor: pointer;
     /* Firefox fixes */
     -moz-backface-visibility: hidden;
     backface-visibility: hidden;
@@ -179,67 +177,6 @@ body {
         opacity: 1;
         transform: scale(1);
     }
-}
-
-/* Blend mode states */
-.rotating-circles.blend-multiply {
-    mix-blend-mode: multiply;
-}
-
-.rotating-circles.blend-screen {
-    mix-blend-mode: screen;
-}
-
-.rotating-circles.blend-overlay {
-    mix-blend-mode: overlay;
-}
-
-.rotating-circles.blend-darken {
-    mix-blend-mode: darken;
-}
-
-.rotating-circles.blend-lighten {
-    mix-blend-mode: lighten;
-}
-
-.rotating-circles.blend-color-dodge {
-    mix-blend-mode: color-dodge;
-}
-
-.rotating-circles.blend-color-burn {
-    mix-blend-mode: color-burn;
-}
-
-.rotating-circles.blend-hard-light {
-    mix-blend-mode: hard-light;
-}
-
-.rotating-circles.blend-soft-light {
-    mix-blend-mode: soft-light;
-}
-
-.rotating-circles.blend-difference {
-    mix-blend-mode: difference;
-}
-
-.rotating-circles.blend-exclusion {
-    mix-blend-mode: exclusion;
-}
-
-.rotating-circles.blend-hue {
-    mix-blend-mode: hue;
-}
-
-.rotating-circles.blend-saturation {
-    mix-blend-mode: saturation;
-}
-
-.rotating-circles.blend-color {
-    mix-blend-mode: color;
-}
-
-.rotating-circles.blend-luminosity {
-    mix-blend-mode: luminosity;
 }
 
 .circles {
