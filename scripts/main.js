@@ -99,14 +99,5 @@ document.addEventListener('DOMContentLoaded', () => {
       // Optional: Console log for debugging
       console.log(`Blend mode changed to: ${newBlendMode}`);
     });
-
-    // Add hover effect
-    circlesContainer.addEventListener('mouseenter', () => {
-      circlesContainer.style.filter = 'brightness(1.1)';
-    });
-
-    circlesContainer.addEventListener('mouseleave', () => {
-      circlesContainer.style.filter = '';
-    });
   }
 });
