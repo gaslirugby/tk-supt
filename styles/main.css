@@ -84,6 +84,50 @@ body {
     justify-content: center;
 }
 
+/* Smooth loading animations */
+.hero-image,
+.rotating-circles,
+.scroll-cue {
+    opacity: 0;
+}
+
+.hero-image {
+    animation-delay: 0.5s;
+    animation-name: fadeInPhotoZoom;
+    animation-duration: 2.5s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+}
+
+.scroll-cue {
+    animation-delay: 1.0s;
+    animation: fadeInSmooth 3s ease-in-out 2.0s forwards;
+}
+
+@keyframes fadeInPhotoZoom {
+    0% {
+        opacity: 0;
+        transform: scale(1.08);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeInSmooth {
+    0% {
+        opacity: 0;
+        transform: translateY(0) scale(1.1);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
 .rotating-circles {
     position: absolute;
     top: 0;
@@ -96,18 +140,98 @@ body {
     justify-content: center;
     overflow: hidden;
     perspective: 1000px;
-    /* mix-blend-mode: plus-lighter; */
-    animation: subtlePulse 8s linear infinite;
+    mix-blend-mode: normal;
+}
+
+.rotating-circles {
+    animation-delay: 0.5s;
+    animation:
+        fadeInZoomOut 2.0s ease-in-out 0.5s forwards,
+        subtlePulse 8s linear 2.5s infinite;
+}
+
+@keyframes fadeInZoomOut {
+    0% {
+        opacity: 0;
+        transform: scale(1.1);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Blend mode states */
+.rotating-circles.blend-multiply {
+    mix-blend-mode: multiply;
+}
+
+.rotating-circles.blend-screen {
+    mix-blend-mode: screen;
+}
+
+.rotating-circles.blend-overlay {
+    mix-blend-mode: overlay;
+}
+
+.rotating-circles.blend-darken {
+    mix-blend-mode: darken;
+}
+
+.rotating-circles.blend-lighten {
+    mix-blend-mode: lighten;
+}
+
+.rotating-circles.blend-color-dodge {
+    mix-blend-mode: color-dodge;
+}
+
+.rotating-circles.blend-color-burn {
+    mix-blend-mode: color-burn;
+}
+
+.rotating-circles.blend-hard-light {
+    mix-blend-mode: hard-light;
+}
+
+.rotating-circles.blend-soft-light {
+    mix-blend-mode: soft-light;
+}
+
+.rotating-circles.blend-difference {
+    mix-blend-mode: difference;
+}
+
+.rotating-circles.blend-exclusion {
+    mix-blend-mode: exclusion;
+}
+
+.rotating-circles.blend-hue {
+    mix-blend-mode: hue;
+}
+
+.rotating-circles.blend-saturation {
+    mix-blend-mode: saturation;
+}
+
+.rotating-circles.blend-color {
+    mix-blend-mode: color;
+}
+
+.rotating-circles.blend-luminosity {
+    mix-blend-mode: luminosity;
 }
 
 .circles {
-    animation: simpleRotation 30s linear infinite;
+    animation: simpleRotation 30s linear 0.5s infinite;
     width: 160%;
     height: 160%;
     object-fit: contain;
     object-position: center center;
     opacity: 1;
     transform-origin: center center;
+    transition: filter 0.3s ease, transform 0.15s ease;
 }
 
 @keyframes simpleRotation {
@@ -184,6 +308,7 @@ body {
     width: 100%;
     height: 100%;
     z-index: 1;
+    overflow: hidden;
 }
 
 .hero-photo {
@@ -224,11 +349,27 @@ body {
     font-size: 27px;
     letter-spacing: var(--letter-spacing-tight);
     color: var(--ink);
+    opacity: 0;
+    animation: fadeInFromBottom 1.2s ease-in-out 2.8s forwards;
+}
+
+@keyframes fadeInFromBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .table {
     display: grid;
     row-gap: 8px;
+    opacity: 0;
+    animation: fadeInFromBottom 1.2s ease-in-out 3.6s forwards;
 }
 
 .table-row {
