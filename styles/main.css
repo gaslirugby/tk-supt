@@ -84,24 +84,40 @@ body {
     justify-content: center;
 }
 
-/* Smooth loading animations */
+/* Initial state - no animations until loaded */
 .hero-image,
 .rotating-circles,
-.scroll-cue {
+.scroll-cue,
+.section-title,
+.table {
     opacity: 0;
 }
 
-.hero-image {
-    animation-delay: 0.5s;
-    animation-name: fadeInPhotoZoom;
-    animation-duration: 2.5s;
-    animation-timing-function: ease-out;
-    animation-fill-mode: forwards;
+/* Animation classes - added by JavaScript after load */
+.hero-image.loaded {
+    animation: fadeInPhotoZoom 2.5s ease-out 0.5s forwards;
 }
 
-.scroll-cue {
-    animation-delay: 1.0s;
+.rotating-circles.loaded {
+    animation:
+        fadeInZoomOut 2.0s ease-in-out 0.5s forwards,
+        subtlePulse 8s linear 2.5s infinite;
+}
+
+.scroll-cue.loaded {
     animation: fadeInSmooth 3s ease-in-out 2.0s forwards;
+}
+
+.section-title.loaded {
+    animation: fadeInFromBottom 1.2s ease-in-out 0.1s forwards;
+}
+
+.table.loaded {
+    animation: fadeInFromBottom 1.2s ease-in-out 0.1s forwards;
+}
+
+.circles.loaded {
+    animation: simpleRotation 30s linear 0.5s infinite;
 }
 
 @keyframes fadeInPhotoZoom {
@@ -144,10 +160,13 @@ body {
 }
 
 .rotating-circles {
-    animation-delay: 0.5s;
-    animation:
-        fadeInZoomOut 2.0s ease-in-out 0.5s forwards,
-        subtlePulse 8s linear 2.5s infinite;
+    transition: mix-blend-mode 0.5s ease;
+    cursor: pointer;
+    /* Firefox fixes */
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    will-change: transform, opacity;
 }
 
 @keyframes fadeInZoomOut {
@@ -224,7 +243,6 @@ body {
 }
 
 .circles {
-    animation: simpleRotation 30s linear 0.5s infinite;
     width: 160%;
     height: 160%;
     object-fit: contain;
@@ -232,6 +250,12 @@ body {
     opacity: 1;
     transform-origin: center center;
     transition: filter 0.3s ease, transform 0.15s ease;
+    /* Firefox fixes */
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
+    will-change: transform;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
 }
 
 @keyframes simpleRotation {
@@ -349,8 +373,6 @@ body {
     font-size: 27px;
     letter-spacing: var(--letter-spacing-tight);
     color: var(--ink);
-    opacity: 0;
-    animation: fadeInFromBottom 1.2s ease-in-out 2.8s forwards;
 }
 
 @keyframes fadeInFromBottom {
@@ -368,8 +390,6 @@ body {
 .table {
     display: grid;
     row-gap: 8px;
-    opacity: 0;
-    animation: fadeInFromBottom 1.2s ease-in-out 3.6s forwards;
 }
 
 .table-row {
