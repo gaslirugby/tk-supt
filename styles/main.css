@@ -1,33 +1,26 @@
-/* ===== CSS VARIABLES ===== */
 :root {
-    /* Colors */
     --bg: #e8e8e8;
     --ink: #D4332B;
     --ink-40: rgba(231, 58, 74, 0.4);
     --text: #D4332B;
 
-    /* Layout */
     --container-max: 80%;
     --container-pad: 1%;
 
-    /* Typography */
     --font-family: "Helvetica Neue", Helvetica, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
     --letter-spacing-tight: -0.1em;
     --letter-spacing-normal: -0.05em;
 
-    /* Spacing */
     --gap-sm: 6px;
     --gap-md: 12px;
     --gap-lg: 18px;
     --gap-xl: 20px;
 }
 
-/* ===== RESET & BASE STYLES ===== */
 * {
     box-sizing: border-box;
 }
 
-/* ===== TEXT SELECTION STYLES ===== */
 ::selection {
     background-color: #D4332B;
     color: #e8e8e8;
@@ -57,20 +50,15 @@ body {
     position: relative;
 }
 
-/* ===== LAYOUT COMPONENTS ===== */
 .container {
     max-width: var(--container-max);
     margin: 0 auto;
     padding: var(--container-pad);
 }
 
-/* ===== HERO BANNER SECTION ===== */
 .hero-banner {
     position: relative;
-    height: 100vh;
-    /* fallback for older browsers */
     height: 100dvh;
-    /* dynamic viewport height - accounts for Safari's dynamic UI */
     overflow: hidden;
     background: linear-gradient(135deg, var(--bg) 0%, var(--bg) 100%);
 }
@@ -84,7 +72,7 @@ body {
     justify-content: center;
 }
 
-/* Initial state - no animations until loaded */
+
 .hero-image,
 .rotating-circles,
 .scroll-cue,
@@ -93,7 +81,7 @@ body {
     opacity: 0;
 }
 
-/* Animation classes - added by JavaScript after load */
+
 .hero-image.loaded {
     animation: fadeInPhotoZoom 2.5s ease-out 0.5s forwards;
 }
@@ -160,7 +148,7 @@ body {
 }
 
 .rotating-circles {
-    /* Firefox fixes */
+
     -moz-backface-visibility: hidden;
     backface-visibility: hidden;
     transform: translateZ(0);
@@ -187,7 +175,7 @@ body {
     opacity: 1;
     transform-origin: center center;
     transition: filter 0.3s ease, transform 0.15s ease;
-    /* Firefox fixes */
+
     -moz-backface-visibility: hidden;
     backface-visibility: hidden;
     will-change: transform;
@@ -299,10 +287,10 @@ body {
 
 .scroll-cue img {
     filter: brightness(0) invert(1);
-    /* Make the arrow white */
+
 }
 
-/* ===== SCHEDULE SECTION ===== */
+
 .section-title {
     margin: 28px 0 12px 0;
     text-align: center;
@@ -330,6 +318,7 @@ body {
 }
 
 .table-row {
+    letter-spacing: var(--letter-spacing-normal);
     display: grid;
     grid-template-columns: 0.7fr 0.8fr 1.2fr 0.8fr;
     align-items: center;
@@ -378,7 +367,7 @@ body {
     font-weight: 600;
 }
 
-/* ===== FOOTER ===== */
+
 .site-footer {
     display: flex;
     flex-direction: column;
@@ -418,7 +407,7 @@ body {
 }
 
 
-/* ===== RESPONSIVE DESIGN ===== */
+
 @media (max-width: 768px) {
     :root {
         --container-max: 96%;
@@ -435,7 +424,7 @@ body {
         object-fit: contain;
         opacity: 1;
         animation-duration: 25s;
-        /* Slower on mobile for performance */
+
     }
 
     .scroll-cue {
@@ -446,7 +435,7 @@ body {
         font-size: 20px;
     }
 
-    /* Mobile table redesign - two row layout */
+
     .table {
         display: block;
     }
@@ -475,7 +464,6 @@ body {
         margin-bottom: 0;
     }
 
-    /* First row: Date (spans both rows) + City + Button */
     .table-cell:nth-child(1) {
         grid-column: 1;
         grid-row: 1 / 3;
@@ -506,7 +494,7 @@ body {
         justify-self: end;
     }
 
-    /* Second row: Venue (in second column) */
+
     .table-cell:nth-child(3) {
         grid-column: 2;
         grid-row: 2;
@@ -520,7 +508,7 @@ body {
         text-align: center;
     }
 
-    /* Button styling - clean and simple */
+
     .table .buy {
         background: var(--ink);
         color: #e8e8e8;
