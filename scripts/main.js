@@ -3,6 +3,51 @@ document.addEventListener('DOMContentLoaded', () => {
   const toTop = document.getElementById('toTop');
   const schedule = document.getElementById('schedule');
 
+  function formatDateToRussian(dateString) {
+    const date = new Date(dateString);
+    const months = [
+      'января', 'февраля', 'марта', 'апреля', 'мая', 'июня',
+      'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'
+    ];
+    
+    const day = date.getDate();
+    const month = months[date.getMonth()];
+    
+    return `${day} ${month}`;
+  }
+
+  function populateDates() {
+    const dateRows = document.querySelectorAll('.table-row[data-date]');
+    
+    dateRows.forEach(row => {
+      const dateStr = row.getAttribute('data-date');
+      const dateCell = row.querySelector('.date-cell');
+      
+      if (dateStr && dateCell) {
+        dateCell.textContent = formatDateToRussian(dateStr);
+      }
+    });
+  }
+
+  function hidePastConcerts() {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    
+    const concertRows = document.querySelectorAll('.table-row[data-date]');
+    
+    concertRows.forEach(row => {
+      const concertDateStr = row.getAttribute('data-date');
+      if (concertDateStr) {
+        const concertDate = new Date(concertDateStr);
+        concertDate.setHours(23, 59, 59, 999);
+        
+        if (concertDate < today) {
+          row.style.display = 'none';
+        }
+      }
+    });
+  }
+
   function startAnimations() {
     const heroImage = document.querySelector('.hero-image');
     const rotatingCircles = document.querySelector('.rotating-circles');
@@ -18,6 +63,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (sectionTitle) sectionTitle.classList.add('loaded');
     if (table) table.classList.add('loaded');
   }
+
+  populateDates();
+  hidePastConcerts();
 
   window.addEventListener('load', () => {
     setTimeout(startAnimations, 100);
