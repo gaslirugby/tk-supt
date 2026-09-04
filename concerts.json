@@ -1,0 +1,44 @@
+[
+  {
+    "date": "2026-11-05",
+    "city": "Москва",
+    "venue": "STILL STANDUP CLUB",
+    "ticketUrl": "https://stillstandup.com/afisha/timur-karginov-solnyy-kontsert-05-11-2130"
+  },
+  {
+    "date": "2026-11-15",
+    "city": "Казань",
+    "venue": "StandUp Club Kazan",
+    "ticketUrl": "https://standupkzn.ru/events/karginov/"
+  },
+  {
+    "date": "2026-11-20",
+    "city": "Красноярск",
+    "venue": "Стендап-клуб \"Хэдлайнер\"",
+    "ticketUrl": "https://krasnoyarsk.qtickets.events/269581-timur-karginov"
+  },
+  {
+    "date": "2026-12-03",
+    "city": "Екатеринбург",
+    "venue": "StandUp Spot",
+    "ticketUrl": "https://freshstandup.ru/karginov"
+  },
+  {
+    "date": "2026-12-04",
+    "city": "Челябинск",
+    "venue": "Стендап-клуб Челябинск",
+    "ticketUrl": "https://ticketscloud.com/v1/widgets/common?token=eyJhbGciOiJIUzI1NiIsImlzcyI6InRpY2tldHNjbG91ZC5ydSIsInR5cCI6IkpXVCJ9.eyJwIjoiNjZkNGIyODI3NWVjNjRiNmNiZDZhOGEzIn0.fDksYaWMA7xcxNJS0Wxm4sLAFxwZblPUEwHUSc6WAA8&lang=ru&event=6ae31f74a4e48efafde36866&s=1"
+  },
+  {
+    "date": "2026-12-09",
+    "city": "Санкт-Петербург",
+    "venue": "STAGE STANDUP CLUB",
+    "ticketUrl": "https://stagestandup.ru/kargin"
+  },
+  {
+    "date": "2026-12-10",
+    "city": "Санкт-Петербург",
+    "venue": "STAGE STANDUP CLUB",
+    "ticketUrl": "https://stagestandup.ru/kargin"
+  }
+]
