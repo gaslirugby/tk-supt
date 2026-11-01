@@ -30,22 +30,24 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function hidePastConcerts() {
-    // Get Moscow time (UTC+3)
-    const now = new Date();
-    const moscowTime = new Date(now.getTime() + (180 - now.getTimezoneOffset()) * 60000);
-    moscowTime.setHours(0, 0, 0, 0);
-    
+    // Compare calendar dates in Moscow, independently of the visitor's timezone.
+    const parts = new Intl.DateTimeFormat('en-US', {
+      timeZone: 'Europe/Moscow',
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit'
+    }).formatToParts(new Date());
+    const values = Object.fromEntries(
+      parts.map(({ type, value }) => [type, value])
+    );
+    const today = `${values.year}-${values.month}-${values.day}`;
+
     const concertRows = document.querySelectorAll('.table-row[data-date]');
-    
+
     concertRows.forEach(row => {
       const concertDateStr = row.getAttribute('data-date');
       if (concertDateStr) {
-        const [year, month, day] = concertDateStr.split('-').map(Number);
-        const concertDate = new Date(Date.UTC(year, month - 1, day));
-        
-        if (concertDate < moscowTime) {
-          row.style.display = 'none';
-        }
+        row.style.display = concertDateStr < today ? 'none' : '';
       }
     });
   }
