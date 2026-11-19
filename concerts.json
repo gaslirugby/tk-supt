@@ -30,6 +30,12 @@
     "ticketUrl": "https://ticketscloud.com/v1/widgets/common?token=eyJhbGciOiJIUzI1NiIsImlzcyI6InRpY2tldHNjbG91ZC5ydSIsInR5cCI6IkpXVCJ9.eyJwIjoiNjZkNGIyODI3NWVjNjRiNmNiZDZhOGEzIn0.fDksYaWMA7xcxNJS0Wxm4sLAFxwZblPUEwHUSc6WAA8&lang=ru&event=6ae31f74a4e48efafde36866&s=1"
   },
   {
+    "date": "2026-12-07",
+    "city": "Москва",
+    "venue": "STILL STANDUP CLUB",
+    "ticketUrl": "https://stillstandup.com/afisha/timur-karginov-solnyy-kontsert-07-12-2130"
+  },
+  {
     "date": "2026-12-09",
     "city": "Санкт-Петербург",
     "venue": "STAGE STANDUP CLUB",
